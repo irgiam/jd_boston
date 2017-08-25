@@ -1,0 +1,29 @@
+(~'div#@{sliderid}') {
+  .n2-ss-item-caption {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .n2-ss-item-caption a {
+    display: block;
+  }
+
+  .n2-ss-item-caption img {
+    display: block;
+    width: 100%;
+  }
+
+  .n2-ss-item-caption .n2-ss-item-caption-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: auto;
+    left: auto;
+    overflow: hidden;
+  }
+
+  .n2-ss-item-caption .n2-ss-item-caption-content h4,
+  .n2-ss-item-caption .n2-ss-item-caption-content p {
+    margin: 10px;
+  }
+}

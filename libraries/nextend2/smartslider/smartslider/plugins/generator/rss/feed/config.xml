@@ -1,0 +1,7 @@
+<root>
+    <params name="rssfeed" label="Filter">
+        <param type="group" label="Source">
+            <param name="rssurl" label="RSS url" type="text"/>
+        </param>
+    </params>
+</root>

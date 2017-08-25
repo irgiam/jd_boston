@@ -1,0 +1,1037 @@
+/** 
+ *------------------------------------------------------------------------------
+ * @package       T3 Framework for Joomla!
+ *------------------------------------------------------------------------------
+ * @copyright     Copyright (C) 2004-2013 JoomlArt.com. All Rights Reserved.
+ * @license       GNU General Public License version 2 or later; see LICENSE.txt
+ * @authors       JoomlArt, JoomlaBamboo, (contribute to this project at github 
+ *                & Google group to become co-author)
+ * @Google group: https://groups.google.com/forum/#!forum/t3fw
+ * @Link:         http://t3-framework.org 
+ *------------------------------------------------------------------------------
+ */
+ 
+
+// --------------------------------------------------
+// CORE TYPOGRAPHY (type.less)
+// Headings
+// --------------------------------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family:"Raleway",sans-serif;
+  font-weight: @headings-font-weight;
+  line-height: @headings-line-height;
+  color: @headings-color;
+
+  small,
+  .small {
+    font-weight: normal;
+    line-height: 1;
+    color: @headings-small-color;
+  }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  margin-top: @line-height-computed;
+  margin-bottom: (@line-height-computed / 2);
+
+  small,
+  .small {
+    font-size: 65%;
+  }
+}
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: (@line-height-computed / 2);
+  margin-bottom: (@line-height-computed / 2);
+
+  small,
+  .small {
+    font-size: 75%;
+  }
+}
+
+h1, .h1 { font-size: @font-size-h1; font-weight:bold; }
+h2, .h2 { font-size: 32px; margin:0px; font-weight:bold; }
+h3, .h3 { font-size: 24px; font-weight:bold; font-family: 'Raleway', sans-serif; }
+h4, .h4 { font-size: @font-size-h4; }
+h5, .h5 { font-size: 20px; font-weight:bold; margin:0px; }
+h6, .h6 { font-size: @font-size-h6; }
+
+
+// Body text
+// -------------------------
+
+// Paragraphs
+// ----------
+p {
+	font-size:16px;
+	padding:10px 0;
+	font-weight:normal;
+	font-family:"Raleway",sans-serif;
+	margin: 0 0 (@line-height-computed / 2);
+}
+
+.lead {
+  margin-bottom: @line-height-computed;
+  font-size: floor((@font-size-base * 1.15));
+  font-weight: 200;
+  line-height: 1.4;
+
+  @media (min-width: @screen-sm-min) {
+    font-size: (@font-size-base * 1.5);
+  }
+}
+
+
+// Emphasis & misc
+// ---------------
+
+// Ex: 14px base font * 85% = about 12px
+small, .small   { font-size: 85%; }
+
+// Undo browser default styling
+cite    { font-style: normal; }
+
+// Alignment
+.text-left           { text-align: left; }
+.text-right          { text-align: right; }
+.text-center         { text-align: center; }
+.text-justify        { text-align: justify; }
+
+// Contextual colors
+.text-muted {
+  color: @text-muted;
+}
+.text-primary {
+  .text-emphasis-variant(@brand-primary);
+}
+.text-success {
+  .text-emphasis-variant(@state-success-text);
+}
+.text-info {
+  .text-emphasis-variant(@state-info-text);
+}
+.text-warning {
+  .text-emphasis-variant(@state-warning-text);
+}
+.text-danger {
+  .text-emphasis-variant(@state-danger-text);
+}
+
+// Contextual backgrounds
+// For now we'll leave these alongside the text classes until v4 when we can
+// safely shift things around (per SemVer rules).
+.bg-primary {
+  // Given the contrast here, this is the only class to have its color inverted
+  // automatically.
+  color: #fff;
+  .bg-variant(@brand-primary);
+}
+.bg-success {
+  .bg-variant(@state-success-bg);
+}
+.bg-info {
+  .bg-variant(@state-info-bg);
+}
+.bg-warning {
+  .bg-variant(@state-warning-bg);
+}
+.bg-danger {
+  .bg-variant(@state-danger-bg);
+}
+
+// Highlight
+.highlight {
+  background-color: #FFC;
+  font-weight: bold;
+  padding: 1px 4px;
+}
+
+// Page header
+// -------------------------
+
+.page-header {
+  padding-bottom: ((@line-height-computed / 2) - 1);
+  margin: (@line-height-computed * 2) 0 @line-height-computed;
+  border-bottom: 1px solid @page-header-border-color;
+}
+
+
+// Lists
+// --------------------------------------------------
+
+// Unordered and Ordered lists
+// ----------------------------
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: (@line-height-computed / 2);
+  ul,
+  ol{
+    margin-bottom: 0;
+  }
+}
+
+// List options
+// Unstyled keeps list items block level, just removes default browser padding and list-style
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+  .list-unstyled();
+  margin-left: -5px;
+
+  > li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+// Description Lists
+dl {
+  margin-top: 0; // Remove browser default
+  margin-bottom: @line-height-computed;
+}
+
+dt,
+dd {
+  line-height: @line-height-base;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0; // Undo browser default
+}
+
+// Horizontal description lists
+//
+// Defaults to being stacked without any of the below styles applied, until the
+// grid breakpoint is reached (default of ~768px).
+
+@media (min-width: @grid-float-breakpoint) {
+  .dl-horizontal {
+    dt {
+      float: left;
+      width: (@component-offset-horizontal - 20);
+      clear: left;
+      text-align: right;
+      .text-overflow();
+    }
+    dd {
+      margin-left: @component-offset-horizontal;
+      &:extend(.clearfix all); // Clear the floated `dt` if an empty `dd` is present
+    }
+  }
+}
+
+
+
+//
+// MISC
+// --------------------------------------------------
+
+// Abbreviations and acronyms
+// --------------------------
+abbr[title],
+// Added data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
+abbr[data-original-title] {
+  cursor: help;
+  border-bottom: 1px dotted @abbr-border-color;
+}
+.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+
+
+// Blockquotes
+// -----------
+blockquote {
+  padding: (@line-height-computed / 2) @line-height-computed;
+  margin: 0 0 @line-height-computed;
+  font-size: @blockquote-font-size;
+  border-left: 5px solid @blockquote-border-color;
+  background:#ddd;
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Note: Deprecated small and .small as of v3.1.0
+  // Context: https://github.com/twbs/bootstrap/issues/11660
+  footer,
+  small,
+  .small {
+    display: block;
+    font-size: 80%; // back to default font-size
+    line-height: @line-height-base;
+    color: @blockquote-small-color;
+
+    &:before {
+      content: '\2014 \00A0'; // em dash, nbsp
+    }
+  }
+}
+
+// Opposite alignment of blockquote
+//
+// Heads up: `blockquote.pull-right` has been deprecated as of v3.1.0.
+.blockquote-reverse,
+blockquote.pull-right {
+  padding-right: 15px;
+  padding-left: 0;
+  border-right: 5px solid @blockquote-border-color;
+  border-left: 0;
+  text-align: right;
+
+  // Account for citation
+  footer,
+  small,
+  .small {
+    &:before { content: ''; }
+    &:after {
+      content: '\00A0 \2014'; // nbsp, em dash
+    }
+  }
+}
+
+// Quotes
+blockquote:before,
+blockquote:after {
+  content: "";
+}
+
+// Addresses
+// ---------
+address {
+  margin-bottom: @line-height-computed;
+  font-style: normal;
+  line-height: @line-height-base;
+}
+
+
+
+//
+// CODE (inline and block) (code.less)
+// -----------------------------------
+// Inline and block code styles
+code,
+kbd,
+pre,
+samp {
+  font-family: @font-family-monospace;
+}
+
+// Inline code
+code {
+}
+
+// Blocks of code
+pre {
+}
+
+
+
+//
+// FEATURE LIST
+// --------------------------------------------------
+.btn-actions {
+  text-align: center;
+}
+
+.features-list {
+  margin-top: @t3-global-margin * 3;
+
+  .page-header {
+    border: 0;
+    text-align: center;
+
+    h1 {
+      font-size: @t3-font-size-bigger + 30;
+    }
+  }
+
+  /* Features Rows */
+  .feature-row {
+    overflow: hidden;
+    min-height: 200px;
+    color: #696f72;
+    border-top: 1px solid #e0e2e3;
+    padding: (@t3-global-padding * 3) 0 0;
+	text-align:center;
+
+    &:last-child {
+      border-bottom: 1px solid #e0e2e3;
+      margin-bottom: @t3-global-margin * 3;
+    }
+
+    h3 {
+      font-size: @font-size-base * 2;      
+    }
+
+    div:first-child {
+      padding-left: 0;
+    }
+
+    div:last-child {
+      padding-right: 0;
+    }
+
+    div:first-child.feature-img img {
+      float: left;
+    }
+
+    div:last-child.feature-img img {
+      float: right;
+    }
+  }
+}
+
+
+.jumbotron {
+  h2 {
+    font-size: @t3-font-size-bigger + 30;
+  }
+
+  iframe {
+    margin-top: @t3-global-margin;
+  }
+}
+
+/*----- Divider -----*/
+
+.divider{
+	&.div-shadow{
+		height:1px;
+		&::after{
+			background:radial-gradient(ellipse at 50% -50% , rgba(0, 0, 0, 0.5) 0px, rgba(255, 255, 255, 0) 65%);
+			content:"";
+			display:block;
+			height:6px;
+			margin-top:10px;
+			width:100%;
+		}
+	}
+	&.div-solid{ border-bottom:1px solid #ddd; border-top:none; }
+	&.div-dotted{ border-bottom:1px dotted #ddd; border-top:none; }
+	&.div-double{ border-bottom:1px solid #ddd; border-top:1px solid #ddd; height:10px; }
+	&.div-dashed{ border-bottom:1px dashed #ddd; border-top:none; }
+}
+
+/*----- Content Boxes -----*/
+
+.content-box{
+
+	&.c1{
+		.content-heading{}
+		.content-body{}
+	}
+
+	&.c2{
+		text-align:center;
+		.content-heading .content-box-heading{ display:block;}
+		.icon{
+			display:block;
+			margin-bottom:10px;
+			.circle-yes{ width:70px; line-height:70px; height:70px; font-size:40px; }
+		}
+		.content-heading{
+			&:hover{
+				.border{
+					color:#fff !important;
+					border:1px solid transparent;
+					background:#02aed6 !important;
+				}
+			}
+		}
+	}
+
+	&.c3{
+		padding:15px;
+		text-align:center;
+		background:#F7F7F7;
+		.content-heading{
+			.icon{
+				top:-35px;
+				position:relative;
+				margin-bottom:-15px;
+				.fa{
+					width:70px;
+					height:70px;
+					font-size:35px;
+					line-height:70px;
+				}
+			}
+			.content-box-heading{ display:block; }
+		}
+		.content-body{}
+	}
+
+	&.c4{
+		padding:15px;
+		text-align:center;
+		background:#F7F7F7;
+		.content-heading{
+			.icon{
+				top:-35px;
+				position:relative;
+				margin-bottom:-15px;
+				.fa{
+					width:70px;
+					height:70px;
+					font-size:35px;
+					line-height:70px;
+				}
+			}
+			.content-box-heading{ display:block; }
+		}
+		.content-body{}
+	}
+
+	.content-heading{
+		a{
+			text-decoration:none;
+		}
+		&:hover{
+			.circle-yes{ background:#02aed6; }
+			.content-box-heading{ color:#02aed6; }
+			.border{
+				color:#fff !important;
+				border:1px solid transparent;
+				background:#02aed6 !important;
+			}
+		}
+	}
+
+	.circle-yes{
+		border-radius:100%;
+	}
+
+	.border{
+		color:#333 !important;
+		border:1px solid #333;
+		background:none !important;
+		&:hover{
+			color:#fff !important;
+			border:1px solid transparent;
+			background:#02aed6 !important;
+		}
+	}
+
+	.icon{
+		i.fa{
+			color:#fff;
+			width:45px;
+			height:45px;
+			font-size:26px;
+			background:#333;
+			line-height:45px;
+			text-align:center;
+		}
+	}
+
+	.icon-left .icon{
+		display:table-cell;
+		line-height:normal;
+		padding-right:10px;
+		vertical-align:middle;
+	}
+	.icon-right .icon{
+		display:table-cell;
+		line-height:normal;
+		padding-left:10px;
+		vertical-align:middle;
+	}
+	.content-box-heading{
+		color:#333;
+		font-size:22px;
+		font-weight:normal;
+		display:table-cell;
+		line-height:normal;
+		vertical-align:middle;
+	}
+	.c-read-more{
+		color:#333;
+		display:block;
+		&:hover{ color:#02aed6; }
+		&.left{ text-align:left; }
+		&.center{ text-align:center; }
+		&.right{ text-align:right; }
+	}
+}
+
+.mod-preview-info{ z-index:9; }
+
+
+/*----- Accordion -----*/
+
+#accordion{
+	h4.panel-title a.collapsed:after{ content:"\f067"; }
+	h4.panel-title a:after{
+		float:right;
+		content:"\f068";
+		display: inline-block;
+		font: normal normal normal 14px/1 FontAwesome;
+		font-size: inherit;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	.panel{
+		h4.panel-title a{ display:block; text-decoration:none; font-size:20px; }
+	}
+	&.boxed-accordion{
+		.panel-heading{ background:#fff; }
+		.panel-collapse .panel-body{ border:none; }
+	}
+	&.classic-accordion{
+		.panel{			
+			border-radius:0;
+			box-shadow:none;
+			background:none;
+			border-top:none;
+			border-right:none;
+			border-left:none;
+			border-bottom:1px solid #ddd;
+			.panel-heading{ background:none; border:none; padding:10px 0; }
+			.panel-body{ border:none; padding:5px 0 15px; }
+		}
+	}
+}
+
+/*----- Images Hover Effects -----*/
+
+/*----- Zoom In -----*/
+
+.zoom figure{ overflow:hidden; }
+
+.zoom figure img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.zoom figure:hover img {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+/*----- Zoom Out -----*/
+
+.zoom-out figure{ overflow:hidden; }
+
+.zoom-out figure img {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.zoom-out figure:hover img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+/*----- Slide -----*/
+
+.slide figure{ overflow:hidden; }
+
+.slide figure img {
+	margin-left: 30px;
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.slide figure:hover img {
+	margin-left: 0;
+}
+
+/*----- Rotate -----*/
+
+.rotate figure{ overflow:hidden; }
+
+.rotate figure img {
+	-webkit-transform: rotate(15deg) scale(1.4);
+	transform: rotate(15deg) scale(1.4);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.rotate figure:hover img {
+	-webkit-transform: rotate(0) scale(1);
+	transform: rotate(0) scale(1);
+}
+
+/*----- Blur -----*/
+.blur figure img {
+	-webkit-filter: blur(3px);
+	filter: blur(3px);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.blur figure:hover img {
+	-webkit-filter: blur(0);
+	filter: blur(0);
+}
+
+/*----- Gray Scale -----*/
+.gray-scale figure img {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.gray-scale figure:hover img {
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0);
+}
+
+/*----- Blur + Gray Scale -----*/
+.blur_grayscale figure{
+	overflow:hidden;
+}
+
+.blur_grayscale figure img {
+	-webkit-filter: grayscale(0) blur(0);
+	filter: grayscale(0) blur(0);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.blur_grayscale figure:hover img {
+	-webkit-filter: grayscale(100%) blur(3px);
+	filter: grayscale(100%) blur(3px);
+}
+
+/*----- Opacity S1 -----*/
+.opacity figure img {
+	opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.opacity figure:hover img {
+	opacity: .5;
+}
+
+/*----- Flashing -----*/
+.flashing figure:hover img {
+	opacity: 1;
+	-webkit-animation: flash 1.5s;
+	animation: flash 1.5s;
+}
+@-webkit-keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* Shine */
+.shine figure{
+	position: relative;
+	overflow:hidden;
+}
+.shine figure::before {
+	position: absolute;
+	top: 0;
+	left: -75%;
+	z-index: 2;
+	display: block;
+	content: '';
+	width: 50%;
+	height: 100%;
+	background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+	background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+	-webkit-transform: skewX(-25deg);
+	transform: skewX(-25deg);
+}
+.shine figure:hover::before {
+	animation: shine .75s;
+	-webkit-animation: shine .75s;
+}
+@-webkit-keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+@keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+
+/*----- Icon -----*/
+
+body .icon-f {
+	width:70px;
+	height:70px;
+	font-size:36px;
+	font-weight:400;
+	line-height:70px;
+	font-style:normal;
+	position:relative;
+	text-align:center;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+body .icon-xxs {
+    font-size:18px;
+    height:40px;
+    line-height:40px;
+    width:40px;
+}
+
+body .icon-xs {
+    font-size:25px;
+    height:50px;
+    line-height:50px;
+    width:50px;
+}
+
+body .icon-sm {
+    width:60px;
+	height:60px;
+	font-size:33px;
+    line-height:60px;
+}
+
+body .icon-lg {
+    font-size:36px;
+    height:80px;
+    line-height:80px;
+    width:80px;
+}
+
+body .icon-xlg {
+    font-size:48px;
+    height:100px;
+    line-height:100px;
+    width:100px;
+}
+
+.circle-icon{
+	color:#fff;
+	background:#262626;
+		border-radius:50%;
+	-webkit-border-radius:50%;
+}
+
+.rect-icon{
+	color:#fff;
+	background:#262626;
+}
+
+.rounded-icon{
+	color:#fff;
+	background:#262626;
+		border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+/*----- Pricing Tables -----*/
+
+/*----- Price Plane Style 1 -----*/
+
+.price-plane-s1{
+	max-width:350px;
+	overflow:hidden;
+	text-align:center;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	padding:20px;
+	position:relative;
+	&.active{
+		box-shadow:0 5px 23px 0 rgba(0, 0, 0, 0.15);
+		.h1{ color:#02aed6; }
+	}
+	.h1{ padding:0;font-weight:normal; }
+	h2{ font-size:30px; font-weight:normal; }
+	.box-planning-label{
+		background:#02aed6;
+		color:#fff;
+		font-size:17px;
+		padding:3px 40px;
+		position:absolute;
+		right:-34px;
+		top:23px;
+		transform:rotate(47deg);
+	}
+	ul.list{
+		li{
+			padding:5px 0;
+			span{
+				font-size:16px;
+				&.text-bold{ font-weight:bold; padding-right:5px; }
+			}
+		}
+	}
+}
+
+/*----- Price Plane Style 2 -----*/
+
+.price-plane-s2{
+	max-width:350px;
+	text-align:center;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	padding:20px;
+	position:relative;
+	&.active{
+		box-shadow:0 5px 23px 0 rgba(0, 0, 0, 0.15);
+		.h1, .h1 sup.up{
+			color:#02aed6;
+		}
+	}
+	.h1{
+		padding:0;
+		font-family:arial;
+		font-weight:normal;
+		sup{
+			color:#333;
+			font-size:14px;
+			&.up{ font-size:70%; right:2px; }
+		}
+	}
+	h2{ font-size:30px; font-weight:normal; }
+	.box-planning-label{
+		top:20px;
+		right:-25px;
+		width:80px;
+		color:#fff;
+		height:80px;
+		font-size:16px;
+		position:absolute;
+		line-height:normal;
+		background:#02aed6;
+		border-radius:100%;
+		span{
+			left:0;
+			top:24%;
+			right:0;
+			position:absolute;
+			transform:rotate(30deg);
+		}
+	}
+	ul.list{
+		li{
+			padding:5px 0;
+			+ li{ border-top:1px solid #eee; margin-top:8px; padding-top:7px; }
+			span{
+				font-size:16px;
+				&.text-bold{ font-weight:bold; padding-right:5px; }
+			}
+		}
+	}
+}
+
+/*----- Price Plane Style 3 -----*/
+
+.price-plane-s3{
+	max-width:350px;
+	text-align:center;
+	display:block;
+	overflow:hidden;
+	margin-left:auto;
+	margin-right:auto;
+	border:1px solid #ddd;
+	background:#fff;
+	position:relative;
+	&.basic-plan{
+		.head-content{ background:#E84C3D; }
+		.price-icon .fa{ background:#E84C3D; }
+		ul.list li{ color:#E84C3D; }
+		.btn{
+			background:#E84C3D;
+			&:hover , &:focus{ background:rgba(232, 76, 61, 0.7); }
+		}
+	}
+	&.premium-plan{
+		.head-content{ background:#2DCC70; }
+		.price-icon .fa{ background:#2DCC70; }
+		ul.list li{ color:#2DCC70; }
+		.btn{
+			background:#2DCC70;
+			&:hover , &:focus{ background:rgba(45, 204, 112, 0.7); }
+		}
+	}
+	&.standard-plan{
+		.head-content{ background:#1B7C9D; }
+		.price-icon .fa{ background:#1B7C9D; }
+		ul.list li{ color:#1B7C9D; }
+		.btn{
+			background:#1B7C9D;
+			&:hover , &:focus{ background:rgba(27, 124, 157, 0.7); }
+		}
+	}
+	.head-content{ color:#fff; padding:20px 0 0; background:#02aed6; }
+	.price-icon{
+		top:30px;
+		margin-top:-15px;
+		position:relative;
+		margin-bottom:30px;
+		.fa{
+			color:#fff;
+			padding:15px;
+			font-size:20px;
+			background:#02AED6;
+			border-radius:100%;
+			border:2px solid #fff;
+		}
+	}
+	.box-planning-label {
+		background:#34495e;
+		color:#fff;
+		font-size:16px;
+		padding:3px 0;
+		position:absolute;
+		right:-37px;
+		text-align:center;
+		top:30px;
+		transform:rotate(47deg);
+		width:160px;
+	}
+	.price{ margin:0; padding:0; font-size:45px; font-family:arial; }
+	.season{ font-size:30px; margin:0; padding:0; }
+	.divider{ border-color:#fff; }
+	.bottom-content{ padding-bottom:20px; }
+	ul.list{
+		li{
+			padding:7px 0;
+			font-size:18px;
+			border-bottom:1px solid #eee;
+			span{ padding:0 2px; }
+		}
+	}
+	a.btn{
+		margin:0;
+		font-size:18px;
+		padding:7px 30px;
+	}
+}

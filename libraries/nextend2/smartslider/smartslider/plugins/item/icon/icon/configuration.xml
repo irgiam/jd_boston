@@ -1,0 +1,21 @@
+<root>
+  <params name="icon-item" label="Icon item settings" hidetitle="1">
+    <param name="icon" type="iconmanager" label="Icon" default=""/>
+    <param type="Group" label="Color">
+      <param name="color" type="color" label="Color" default="00000080" alpha="1"/>
+      <param name="color-hover" type="color" label="Hover" default="00000000" alpha="1"/></param>
+    <param name="style" type="style" previewmode="box" label="Style">
+      <![CDATA[<div class="{styleClassName}" style="width:{nextend.activeLayer.find('.n2-ss-item').width()}px;height:{nextend.activeLayer.find('.n2-ss-item').height()}px;">{nextend.activeLayer.find('img').clone().wrap('<p>').parent().html()}</div>]]>
+    </param>
+    <param name="link" type="mixed" label="Link" default="#|*|_self">
+      <param type="url" label="Link" style="width:140px;"/>
+      <param type="list" label="Target" translateable="1">
+        <option value="_self">Self</option>
+        <option value="_blank">Blank</option>
+      </param>
+    </param>
+    <param name="size" type="mixed" label="Size" default="100%|*|auto" class="n2-expert">
+      <param type="text" label="Width" style="width:60px;"/>
+      <param type="text" label="Height" style="width:60px;"/></param>
+  </params>
+</root>

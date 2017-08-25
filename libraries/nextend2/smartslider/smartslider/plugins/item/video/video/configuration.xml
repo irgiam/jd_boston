@@ -1,0 +1,24 @@
+<root>
+  <params name="video-item" label="Video item settings" hidetitle="1">
+    <param name="video_mp4" type="text" label="Format MP4" default=""/>
+    <param name="video_webm" type="text" label="Format WebM" default=""/>
+    <param name="video_ogg" type="text" label="Format OGG" default=""/>
+    <param name="showcontrols" type="onoff" label="Show Controls" default="0"/>
+    <param name="volume" type="list" label="Volume" default="1" translateable="1">
+      <option value="0">Mute</option>
+      <option value="0.25">25%</option>
+      <option value="0.5">50%</option>
+      <option value="0.75">75%</option>
+      <option value="1">100%</option>
+    </param>
+    <param name="preload" type="list" label="Preload" default="auto" translateable="1">
+      <option value="auto">auto</option>
+      <option value="metadata">metadata</option>
+      <option value="none">none</option>
+    </param>
+    <param name="autoplay" type="onoff" label="Autoplay" default="0"/>
+    <param name="center" type="onoff" label="Centered" default="0"/>
+    <param name="loop" type="onoff" label="Loop" default="0"/>
+    <param name="reset" type="onoff" label="Reset video when lose focus" default="0" class="n2-expert"/>
+  </params>
+</root>

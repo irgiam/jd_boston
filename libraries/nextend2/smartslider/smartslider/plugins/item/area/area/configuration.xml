@@ -1,0 +1,32 @@
+<root>
+    <params name="area-item" hidetitle="1">
+        <param name="color" type="color" label="Background color" default="00000000" alpha="1"
+                />
+        <param name="css" type="textarea" label="Custom CSS" default="" class="n2-expert"/>
+        <param type="group" label="Size">
+            <param name="width" type="text" label="Width" default="" style="width:32px;">
+                <unit value="px">px</unit>
+            </param>
+            <param name="height" type="text" label="Height" default="" style="width:32px;">
+                <unit value="px">px</unit>
+            </param>
+        </param>
+        <param type="group" label="Border">
+            <param type="number" name="borderWidth" label="Width" default="0" style="width: 14px;">
+                <unit>px</unit>
+            </param>
+            <param type="number" name="borderRadius" label="Radius" default="0" style="width: 14px;">
+                <unit>px</unit>
+            </param>
+            <param name="borderColor" type="color" label="Color" default="00000000" alpha="1"/>
+        </param>
+        <param name="link" type="mixed" label="Link" default="#|*|_self"
+                >
+            <param type="url" label="Link" style="width:140px;"/>
+            <param type="list" label="Target" translateable="1">
+                <option value="_self">Self</option>
+                <option value="_blank">Blank</option>
+            </param>
+        </param>
+    </params>
+</root>

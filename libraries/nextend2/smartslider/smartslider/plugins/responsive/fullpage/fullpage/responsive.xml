@@ -1,0 +1,20 @@
+<root>
+    <params name="smartslider-responsive-full-page" label="Responsive - Full page">
+
+        <param type="group" label="Slide width">
+            <param name="responsiveSlideWidthMax" type="numberautocomplete" label="Max" default="3000"
+                   style="width:40px" values="3000,980">
+                <unit>px</unit>
+            </param>
+        </param>
+        <param type="group" label="Focus">
+            <param name="responsiveFocusUser" type="onoff" label="User interaction" default="0"/>
+            <param name="responsiveFocusAutoplay" type="onoff" label="Autoplay" default="0"/>
+        </param>
+        <param type="onoff" name="responsiveForceFull" label="Force full width" default="1"/>
+        <param type="onoff" name="responsiveConstrainRatio" label="Constrain ratio" default="1"/>
+        <param type="textautocomplete" name="responsiveHeightOffset" label="Vertical offset selectors"
+               default="#wpadminbar"
+               style="width:400px;" values="#wpadminbar"/>
+    </params>
+</root>

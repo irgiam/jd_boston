@@ -1,0 +1,10 @@
+<?php
+N2Base::getApplication('system')
+      ->getApplicationType('backend');
+N2Base::getApplication('smartslider')
+      ->getApplicationType('backend')
+      ->run(array(
+          'useRequest' => false,
+          'controller' => 'layout',
+          'action'     => 'index'
+      ));

@@ -1,0 +1,32 @@
+<root>
+  <params name="caption-item" label="Caption item settings" hidetitle="1">
+    <param name="animation" type="mixed" label="Animation" default="Full|*|Left|*|0">
+      <param type="list" label="Mode" translateable="1">
+        <option value="Full">Full</option>
+        <option value="Simple">Simple</option>
+        <option value="Fade">Fade</option>
+      </param>
+      <param type="list" label="Direction" translateable="1">
+        <option value="top">Top</option>
+        <option value="right">Right</option>
+        <option value="bottom">Bottom</option>
+        <option value="left">Left</option>
+      </param>
+      <param type="onoff" label="Scale"/></param>
+    <param name="image" type="image" label="Image" default="" fixed="1" style="width: 144px;"/>
+    <param name="alt" type="text" label="Alt" default="Alternative text for image" class="n2-expert"/>
+    <param name="content" type="text" label="Title" default="Button"/>
+    <param name="fonttitle" type="font" previewmode="paragraph" label="Title font"/>
+    <param name="description" type="textarea" label="Description" default="" style2="width: 230px;resize: vertical;" class="n2-expert"/>
+    <param name="font" type="font" previewmode="paragraph" label="Description font" class="n2-expert"/>
+    <param name="color" type="color" label="Caption backgound" alpha="1" default="00000080"/>
+    <param name="link" type="mixed" label="Link" default="|*|_self">
+      <param type="url" label="Link" style="width:140px;"/>
+      <param type="list" label="Target" translateable="1">
+        <option value="_self">Self</option>
+        <option value="_blank">Blank</option>
+      </param>
+    </param>
+    <param type="onoff" name="image-optimize" label="Optimize" default="1" class="n2-expert"/>
+  </params>
+</root>

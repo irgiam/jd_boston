@@ -1,0 +1,22 @@
+<root>
+  <params name="image-item" label="Image item settings" hidetitle="1">
+    <param name="image" type="image" label="Image" default="" fixed="1" style="width: 144px;"/>
+    <param name="alt" type="text" label="Alt" default=""/>
+    <param name="title" type="text" label="Title" default="" class="n2-expert"/>
+    <param name="link" type="mixed" label="Link" default="#|*|_self">
+      <param type="url" label="Link" style="width:140px;"/>
+      <param type="list" label="Target" translateable="1">
+        <option value="_self">Self</option>
+        <option value="_blank">Blank</option>
+      </param>
+    </param>
+    <param name="size" type="mixed" label="Size" default="100%|*|auto" class="n2-expert">
+      <param type="text" label="Width"/>
+      <param type="text" label="Height"/></param>
+    <param name="style" type="style" previewmode="box" label="Style" class="n2-expert">
+      <![CDATA[<div class="{styleClassName}" style="width:{nextend.activeLayer.width()}px;height:{nextend.activeLayer.height()}px;"><img style="width:100%;" src="{nextend.imageHelper.fixed($('#item_imageimage').val())}" /></div>]]>
+    </param>
+    <param name="cssclass" type="text" label="CSS Class" default="" class="n2-expert"/>
+    <param type="onoff" name="image-optimize" label="Optimize" default="1" class="n2-expert"/>
+  </params>
+</root>

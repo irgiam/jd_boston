@@ -1,0 +1,700 @@
+/** 
+ *------------------------------------------------------------------------------
+ * @package       T3 Framework for Joomla!
+ *------------------------------------------------------------------------------
+ * @copyright     Copyright (C) 2004-2013 JoomlArt.com. All Rights Reserved.
+ * @license       GNU General Public License version 2 or later; see LICENSE.txt
+ * @authors       JoomlArt, JoomlaBamboo, (contribute to this project at github 
+ *                & Google group to become co-author)
+ * @Google group: https://groups.google.com/forum/#!forum/t3fw
+ * @Link:         http://t3-framework.org 
+ *------------------------------------------------------------------------------
+ */
+
+
+// ------------------------------------------------------
+// FORM ELEMENTS
+// ------------------------------------------------------
+
+//
+// GENERIC STYLES (forms.less)
+// --------------------------------------------------
+
+form {
+}
+
+fieldset {
+}
+
+legend {
+}
+
+label {
+}
+
+
+// Adjust output element
+output {
+}
+
+
+// Common form controls
+// --------------------
+// Shared size and type resets for form controls. Apply `.form-control` to any
+// of the following form controls:
+//
+// select
+// textarea
+// input[type="text"]
+// input[type="password"]
+// input[type="datetime"]
+// input[type="datetime-local"]
+// input[type="date"]
+// input[type="month"]
+// input[type="time"]
+// input[type="week"]
+// input[type="number"]
+// input[type="email"]
+// input[type="url"]
+// input[type="search"]
+// input[type="tel"]
+// input[type="color"]
+.form-control {
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  .form-control-focus();
+
+  // Placeholder
+  .placeholder();
+
+  // Disabled and read-only inputs
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+  }
+
+  // Reset height for `textarea`s
+  textarea& {
+    height: auto;
+  }
+}
+
+
+body .gbs3 .btn{ border-radius:2px; }
+body .gbs3 .form-control{ border-radius:2px; }
+
+// Form groups
+// -----------
+.form-group {
+  margin-bottom: @t3-global-margin;
+}
+
+
+// Checkboxes and radios
+// ---------------------
+.radio,
+.checkbox {
+  label {
+    display: inline;
+  }
+}
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+}
+
+.radio + .radio,
+.checkbox + .checkbox {
+}
+
+// Radios and checkboxes on same line
+.radio-inline,
+.checkbox-inline {
+}
+
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+}
+
+
+// Form control sizing
+// -------------------
+.input-sm {
+}
+
+.input-lg {
+}
+
+
+// Form control feedback states
+// ----------------------------
+// Apply contextual and semantic states to individual form controls.
+
+// Warning
+.has-warning {
+}
+// Error
+.has-error {
+}
+// Success
+.has-success {
+}
+
+
+// Static form control text
+// ------------------------
+// Apply class to a `p` element to make any string of text align with labels in
+// a horizontal form layout.
+
+.form-control-static {
+  margin-bottom: 0; // Remove default margin from `p`
+}
+
+
+// Help text
+// ---------
+// Apply to any element you wish to create light text for placement immediately
+// below a form control. Use for general help, formatting, or instructional text.
+
+.help-block {
+}
+
+
+
+// Inline forms
+// ------------
+// Make forms appear inline(-block) by adding the `.form-inline` class. Inline
+// forms begin stacked on extra small (mobile) devices and then go inline when
+// viewports reach <768px.
+//
+// Requires wrapping inputs and labels with `.form-group` for proper display of
+// default HTML form controls and our custom form controls (e.g., input groups).
+//
+// Heads up! This is mixin-ed into `.navbar-form` in navbars.less.
+
+.form-inline {
+
+  @media (min-width: @screen-sm) {
+
+    .form-group  {
+      display: inline-block;
+    }
+
+    // In navbar-form, allow folks to *not* use `.form-group`
+    .form-control {
+      display: inline-block;
+    }
+
+    // Remove default margin on radios/checkboxes that were used for stacking, and
+    // then undo the floating of radios and checkboxes to match (which also avoids
+    // a bug in WebKit: https://github.com/twbs/bootstrap/issues/1969).
+    .radio,
+    .checkbox {
+    }
+
+    .radio input[type="radio"],
+    .checkbox input[type="checkbox"] {
+      float: none;
+    }
+
+  }
+
+  // End
+}
+
+
+// Horizontal forms
+// ----------------
+// Horizontal forms are built on grid classes and allow you to create forms with
+// labels on the left and inputs on the right.
+
+.form-horizontal {
+
+  // Consistent vertical alignment of labels, radios, and checkboxes
+  .control-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: (@padding-base-vertical + 1); // Default padding plus a border
+  }
+
+  // Make form groups behave like rows
+  .form-group {
+  }
+
+  .form-control-static {
+    padding-top: (@padding-base-vertical + 1);
+  }
+
+}
+
+
+//
+// INPUT GROUPS (input-groups.less)
+// --------------------------------------------------
+// T3 Note: See "bootstrap/input-group.less"
+//  if you want to style this components
+
+
+
+//
+// BUTTONS (buttons.less)
+// --------------------------------------------------
+
+// Base styles
+// --------------------------------------------------
+
+
+.form-actions{ background:none; }
+
+// Core styles
+.btn ,button{
+	color:#fff;
+	font-size:15px;
+	padding:7px 21px;
+	border-radius:2px;
+	z-index:1;
+	margin-bottom:10px;
+	text-transform:capitalize;
+	margin-right:5px;
+	display:inline-block;
+	position:relative;
+	border:1px solid transparent;
+	background:#02aed6;
+	transition:all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+	-moz-transition:all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+	-webkit-transition:all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+
+	&:hover, &:focus { background:#262626; color:#fff; }
+	&.btn-lg{ font-size:19px; padding:17px 24px; }
+	&.btn-sm{ font-size:15px; padding:10px 18px; }
+	&.btn-xs{ font-size:14px; padding:5px 15px; }
+	&.btn-rect{ border-radius:5px; }
+	&.btn-owal{ border-radius:25px; }
+	&.icon-right .fa{ margin-left:10px; }
+	&.icon-left .fa{ margin-right:10px; }
+}
+
+.btn-s1{
+	background:#262626;
+	&:hover, &:focus { background:#505050; color:#fff; }
+}
+
+.btn-s2{
+	background:none;
+	color:#02aed6;
+	border-color:#02aed6;
+	&:hover, &:focus { background:#02aed6; color:#fff; }
+}
+
+.btn-s3{
+	background:none;
+	color:#262626;
+	border-color:#262626;
+	&:hover, &:focus { background:#262626; color:#fff; }
+}
+
+
+.btn-group-vertical{
+	.btn, button{ margin-bottom:0; }
+}
+
+#form-login input.button{
+	color:#fff;
+	font-size:15px;
+	padding:7px 21px;
+	border-radius:2px;
+	z-index:1;
+	margin-bottom:10px;
+	text-transform:capitalize;
+	margin-right:5px;
+	display:inline-block;
+	position:relative;
+	border:1px solid transparent;
+	background:#02aed6;
+	transition:all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+	-moz-transition:all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+	-webkit-transition:all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+
+	&:hover, &:focus { background:#262626; color:#fff; }
+}
+
+// Alternate buttons
+// --------------------------------------------------
+.btn-default {
+	color:#fff;
+	border-radius: 0;
+	background:#02aed6;
+	&:hover , &:focus{ border-color:#262626; }
+}
+
+.btn.btn-primary {
+	background-color:#02aed6;
+	border-color:#02aed6;
+	color:#fff;
+	&:hover , &:focus{ background:#262626; color:#fff; border-color:#262626; }
+}
+
+// Warning appears as orange
+.btn.btn-warning {
+    background-color: #f0ad4e;
+    border-color: #eea236;
+    color: #ffffff;
+}
+
+// Danger and error appear as red
+.btn.btn-danger {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    color: #ffffff;
+}
+
+// Success appears as green
+.btn.btn-success {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    color: #ffffff;
+}
+
+// Info appears as blue-green
+.btn.btn-info {
+	background-color: #5bc0de;
+    border-color: #46b8da;
+    color: #ffffff;
+}
+
+.btn.btn-link{
+	background:none;
+	border-top:none;
+	border-right:none;
+	border-bottom:1px solid #02aed6;
+	border-left:none;
+	color:#02aed6;
+	border-radius:0;
+	text-decoration:none;
+	&:hover , &:focus{ border-color:#262626; color:#262626; }
+}
+
+// T3 Note: Inverse appears as dark-grey
+.btn-inverse {
+  .button-variant(@btn-inverse-color; @btn-inverse-bg; @btn-inverse-border);
+}
+
+
+// Link buttons
+// --------------------------------------------------
+// Make a button look and behave like a link
+.btn-link {
+
+  &,
+  &:active,
+  &[disabled],
+  fieldset[disabled] & {
+  }
+
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+  }
+
+  &:hover,
+  &:focus {
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+    }
+  }
+
+}
+
+/*----- Button Group -----*/
+
+.btn-group{
+	.btn{
+		border-color:#35bede;
+		border-radius:6px;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		margin:0;
+	}
+	&.open .dropdown-toggle{ background:#35BEDE; box-shadow:none; color:#fff; }
+	.dropdown-toggle + ul.dropdown-menu{ padding:0; }
+	.dropdown-toggle + ul.dropdown-menu li{ border-bottom:1px solid #ddd; }
+	.dropdown-toggle + ul.dropdown-menu li.active{ background:none; color:#02aed6; }
+	.dropdown-toggle + ul.dropdown-menu li a{ padding:10px 20px; }
+	.dropdown-toggle + ul.dropdown-menu li:last-child{ border-bottom:none; }
+}
+
+// Block button
+// --------------------------------------------------
+.btn-block {
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+
+//
+// BUTTON GROUPS (button-groups.less)
+// --------------------------------------------------
+// T3 Note: See "bootstrap/buttons-group.less"
+//  if you want to style this component
+
+
+
+
+// T3 Note: We added legacy form elements to get better
+// compatibility with Joomla Core.
+
+// ------------------------------------------------------
+// LEGACY FORM ELEMENTS (base-bs3/less/legacy-forms.less)
+// ------------------------------------------------------
+
+
+//
+// GENERIC STYLES
+// ------------------------------------------------------
+
+// Common form controls
+// --------------------
+
+// Legacy class below
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.inputbox {
+
+  // Focus states
+  &:focus {}
+
+  // Placeholder
+  .placeholder();
+
+  // Disabled and read-only inputs
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+  }
+
+  // Reset height for `textarea`s
+  textarea& {
+    height: auto;
+  }
+
+  // Reset Width for Legacy classes in Medium Screen
+  @media screen and (min-width: @screen-sm) {
+    width: auto;
+  }
+
+}
+
+// Redefine padding for <select>
+select,
+select.form-control,
+select.inputbox,
+select.input {
+  padding-right: 5px;
+}
+
+
+// Legacy Input Size
+// -------------------
+// General classes for quick sizes
+.input-mini {
+}
+
+.input-small {
+}
+
+.input-medium {
+}
+
+.input-large {
+}
+
+.input-xlarge {
+}
+
+.input-xxlarge {
+}
+
+
+
+// Inline forms
+// ------------
+.form-inline {
+}
+
+
+// Horizontal forms
+// ----------------
+.form-horizontal {
+}
+
+
+
+//
+// OTHER LEGACY CLASSES FROM BS2
+// ------------------------------------------------------
+
+// FORM ACTIONS
+// ------------
+// Adding the legacy "form-actions" from BS2
+.form-actions {
+}
+
+
+// INPUT GROUPS
+// ------------
+// Allow us to put symbols and text within the input field for a cleaner look
+.input-append,
+.input-prepend {
+
+  input,
+  select,
+  .uneditable-input {
+    // Focus state
+    &:focus {
+    }
+  }
+
+  .add-on {
+  }
+
+  .active {
+    background-color: lighten(@green, 30);
+    border-color: @green;
+  }
+
+}
+
+.input-prepend {
+
+  .add-on,
+  .btn {
+  }
+
+  .add-on:first-child,
+  .btn:first-child {
+  }
+
+}
+
+.input-append {
+
+  input,
+  select,
+  .uneditable-input {
+  }
+
+  .add-on,
+  .btn,
+  .btn-group {
+  }
+
+  .add-on:last-child,
+  .btn:last-child,
+  .btn-group:last-child > .dropdown-toggle {
+  }
+
+}
+
+
+.input-prepend.input-append {
+
+  input,
+  select,
+  .uneditable-input {
+  }
+
+  .add-on:first-child,
+  .btn:first-child {
+  }
+
+  .add-on:last-child,
+  .btn:last-child {
+  }
+
+  .btn-group:first-child {
+  }
+
+}
+
+
+
+//
+// BUTTONS
+// ------------------------------------------------------
+
+// Lagacy Button Sizes
+// --------------------------------------------------
+
+// Large
+.btn-large {
+}
+
+.btn-large [class^="icon-"],
+.btn-large [class*=" icon-"] {
+}
+
+// Small
+.btn-small {
+}
+
+.btn-small [class^="icon-"],
+.btn-small [class*=" icon-"] {
+}
+
+
+// Mini
+.btn-mini {
+}
+
+.btn-mini [class^="icon-"],
+.btn-mini [class*=" icon-"] {
+}
+
+
+
+
+//
+// FORM VALIDATION
+// -------------------------------------------------------
+
+// Invalid
+// -----------------------
+.invalid {
+  border-color: @red;
+}
+
+label.invalid {
+  color: @red;
+}
+
+input.invalid {
+  border: 1px solid @red;
+}

@@ -1,0 +1,6 @@
+.t3-header.header-active{ background:none; position:absolute; width:100%; }
+.headerimg-container{ text-align:center; color:#fff; padding:160px 0 100px; }
+.headerimg-container .title{ font-size:40px; }
+.headerimg-container .description{ width:95%; max-width:750px; margin:0 auto; }
+#headerimg .t3-module{ margin-bottom:0; }
+.headerimg-container .title{ text-transform:uppercase; font-weight:200; }

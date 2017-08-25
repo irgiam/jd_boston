@@ -1,0 +1,6 @@
+<root>
+    <params name="basic" label="Picasa generator">
+        <param name="userID" type="text" label="Gmail address or user ID" default="" style="width:150px;"/>
+        <param type="token"/>
+    </params>
+</root>
